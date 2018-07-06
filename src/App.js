@@ -10,12 +10,26 @@ class App extends Component {
     super(props)
     this.state = {data: []}
   }
+  
   recieveItem = (item) => {
     this.state.data.push(item);
     this.setState({data: this.state.data});
-    console.log(this.state.data);
   }
-  
+
+  deleteItem = (item) => {
+    let new_data = this.state.data.filter((obj) => {
+      return obj.id !== item.id;
+    })
+    this.setState({data: new_data});
+  }
+
+  toggleItem = (item) => {
+    let selectedItem = this.state.data.find((object => object.id === item.id))
+    selectedItem.isChecked = !selectedItem.isChecked;
+    this.setState({data: this.state.data});
+    
+  }
+
   render() {
     return (
       <div className="App">
@@ -24,7 +38,7 @@ class App extends Component {
           <h1 className="App-title">Todo App</h1>
         </header>
         <InputItem itemCallback = {this.recieveItem}/>
-        <TodoList todos = {this.state.data}/>
+        <TodoList todos = {this.state.data} removeTodoCallback = {this.deleteItem} selectTodoCallback = {this.toggleItem}/>
       </div>
     );
   }
