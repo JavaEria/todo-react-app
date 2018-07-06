@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class InputItem extends Component {
    
     createItem = (itemDescription) => {
-       return {id: Math.floor(Math.random() * 1e7), name: itemDescription, isChecked: false};
+       return {id: Math.random().toString(36).substr(2, 9), name: itemDescription, isChecked: false};
     }
     
 
