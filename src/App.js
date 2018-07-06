@@ -5,9 +5,16 @@ import InputItem from './InputItem';
 import TodoList from './TodoList';
 
 class App extends Component {
-  
+
+  constructor(props) {
+    super(props)
+    this.state = {data: []}
+  }
   recieveItem = (item) => {
-    this.props.listName = item;
+    this.setState(() => {
+      this.state.data.push(item);
+    })
+    console.log(this.state.data);
   }
   
   render() {
@@ -18,7 +25,7 @@ class App extends Component {
           <h1 className="App-title">Todo App</h1>
         </header>
         <InputItem itemCallback = {this.recieveItem}/>
-        <TodoList sentItem = {this.props.listName}/>
+        <TodoList todos = {this.state.data}/>
       </div>
     );
   }
