@@ -11,9 +11,8 @@ class App extends Component {
     this.state = {data: []}
   }
   recieveItem = (item) => {
-    this.setState(() => {
-      this.state.data.push(item);
-    })
+    this.state.data.push(item);
+    this.setState({data: this.state.data});
     console.log(this.state.data);
   }
   
