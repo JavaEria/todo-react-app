@@ -26,8 +26,13 @@ class App extends Component {
   toggleItem = (item) => {
     let selectedItem = this.state.data.find((object => object.id === item.id))
     selectedItem.isChecked = !selectedItem.isChecked;
-    this.setState({data: this.state.data});
-    
+    this.setState({data: this.state.data}); 
+  }
+
+  editItem = (item, value )=> {
+    let selectedItem = this.state.data.find((object => object.id === item.id))
+    selectedItem.name = value;
+    this.setState({data: this.state.data});  
   }
 
   render() {
@@ -38,7 +43,7 @@ class App extends Component {
           <h1 className="App-title">Todo App</h1>
         </header>
         <InputTodo recieveTodo= {this.recieveTodo}/>
-        <TodoList todosList = {this.state.data} removeItem = {this.deleteItem} selectItem = {this.toggleItem}/>
+        <TodoList todosList = {this.state.data} removeItem = {this.deleteItem} selectItem = {this.toggleItem} editItem = {this.editItem}/>
       </div>
     );
   }

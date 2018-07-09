@@ -4,20 +4,19 @@ import uuid from'react-native-uuid';
 class InputTodo extends Component {
    
     createTodo = (todoDescription) => {
-       return {id: uuid.v1(), name: todoDescription, isChecked: false};
+       return {id: uuid.v1(), name: todoDescription, isChecked: false, isEditable: false};
     }
     
 
     sendTodo = (event) => {
         event.preventDefault();
-        this.props.recieveTodo(this.createTodo(event.target.elements.inputItem.value));
-
+        this.props.recieveTodo(this.createTodo(event.target.elements.inputTodo.value));
     }
 
     render() {
         return (
             <form onSubmit = {this.sendTodo}>
-                <input type ="text" name= "inputItem"/>
+                <input type ="text" name= "inputTodo"/>
                 <button type="submit">Add</button>
             </form>
         )
