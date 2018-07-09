@@ -9,7 +9,7 @@ class InputItem extends Component {
 
     sendItem = (event) => {
         event.preventDefault();
-        this.props.recieveItem(this.createItem(event.target[0].value));
+        this.props.recieveItem(this.createItem(event.target.elements.inputItem.value));
 
     }
 
