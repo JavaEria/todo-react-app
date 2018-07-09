@@ -38,7 +38,7 @@ class App extends Component {
           <h1 className="App-title">Todo App</h1>
         </header>
         <InputTodo recieveTodo= {this.recieveTodo}/>
-        <TodoList todos = {this.state.data} removeItem = {this.deleteItem} selectItem = {this.toggleItem}/>
+        <TodoList todosList = {this.state.data} removeItem = {this.deleteItem} selectItem = {this.toggleItem}/>
       </div>
     );
   }

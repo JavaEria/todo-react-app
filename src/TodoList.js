@@ -14,8 +14,8 @@ class TodoList extends Component{
     render(){
         return (
         <div>
-            {this.props.todos.map((item) => (
-                <TodoItem key = {item.id} todo = {item} removeItem = {this.itemDeleted} selectItem = {this.itemSelected}/>
+            {this.props.todosList.map((item) => (
+                <TodoItem key = {item.id} todoItem = {item} removeItem = {this.itemDeleted} selectItem = {this.itemSelected}/>
             ))}
         </div>
         )
