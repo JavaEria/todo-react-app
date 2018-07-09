@@ -37,8 +37,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Todo App</h1>
         </header>
-        <InputItem itemCallback = {this.recieveItem}/>
-        <TodoList todos = {this.state.data} removeTodoCallback = {this.deleteItem} selectTodoCallback = {this.toggleItem}/>
+        <InputItem recieveItem = {this.recieveItem}/>
+        <TodoList todos = {this.state.data} removeItem = {this.deleteItem} selectItem = {this.toggleItem}/>
       </div>
     );
   }
