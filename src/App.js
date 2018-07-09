@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import InputItem from './InputItem';
+import InputTodo from './InputTodo';
 import TodoList from './TodoList';
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {data: []}
   }
   
-  recieveItem = (item) => {
+  recieveTodo = (item) => {
     this.state.data.push(item);
     this.setState({data: this.state.data});
   }
@@ -37,7 +37,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Todo App</h1>
         </header>
-        <InputItem recieveItem = {this.recieveItem}/>
+        <InputTodo recieveTodo= {this.recieveTodo}/>
         <TodoList todos = {this.state.data} removeItem = {this.deleteItem} selectItem = {this.toggleItem}/>
       </div>
     );
