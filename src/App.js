@@ -9,7 +9,7 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {data: [], filteredData: []}
+    this.state = {data: [], filteredData: [], isFiltered: false}
   }
   
   recieveTodo = (item) => {
@@ -36,15 +36,27 @@ class App extends Component {
     this.setState({data: this.state.data});  
   }
 
-  // filterTodos = (filterName) => {
-  //   if(filterName === 'filter-complete') {
-  //     this.state.data.filter((obj) => {
-  //       return obj.isChecked;
-  //     })
-  //   } else if(filterName === 'filter-incomplete'){
-  //   } else {
-  //   } 
-  // }
+  filterTodos = (filterName) => {
+    if(filterName === 'filter-complete') {
+      this.setState((preState)=> {
+        return {
+          filteredData:  this.state.data.filter((obj) => {
+          return obj.isChecked;
+        })}
+      })
+      this.setState({isFiltered: true})
+    } else if(filterName === 'filter-incomplete'){
+      this.setState((preState)=> {
+        return {
+          filteredData:  this.state.data.filter((obj) => {
+          return !obj.isChecked;
+        })}
+      })
+      this.setState({isFiltered: true})
+    } else {
+      this.setState({isFiltered: false})
+    } 
+  }
 
   render() {
     return (
@@ -55,7 +67,7 @@ class App extends Component {
         </header>
         <InputTodo recieveTodo = {this.recieveTodo}/>
         <FilterTodo filterTodo = {this.filterTodos}/>
-        <TodoList todosList = {this.state.data} removeItem = {this.deleteItem} selectItem = {this.toggleItem} editItem = {this.editItem}/>
+        <TodoList todosList = {this.state.data} filteredTodoList = {this.state.filteredData} isFiltered = {this.state.isFiltered} removeItem = {this.deleteItem} selectItem = {this.toggleItem} editItem = {this.editItem}/>
       </div>
     );
   }
