@@ -34,15 +34,27 @@ class App extends Component {
     this.setState({ data: this.state.data });
   };
 
-  // filterTodos = (filterName) => {
-  //   if(filterName === 'filter-complete') {
-  //     this.state.data.filter((obj) => {
-  //       return obj.isChecked;
-  //     })
-  //   } else if(filterName === 'filter-incomplete'){
-  //   } else {
-  //   }
-  // }
+  filterTodos = (filterName) => {
+    if(filterName === 'filter-complete') {
+      this.setState((preState)=> {
+        return {
+          filteredData:  this.state.data.filter((obj) => {
+          return obj.isChecked;
+        })}
+      })
+      this.setState({isFiltered: true})
+    } else if(filterName === 'filter-incomplete'){
+      this.setState((preState)=> {
+        return {
+          filteredData:  this.state.data.filter((obj) => {
+          return !obj.isChecked;
+        })}
+      })
+      this.setState({isFiltered: true})
+    } else {
+      this.setState({isFiltered: false})
+    } 
+  }
 
   render() {
     return (
@@ -57,6 +69,8 @@ class App extends Component {
         </div>
         <TodoList
           todosList={this.state.data}
+          filteredTodoList = {this.state.filteredData} 
+          isFiltered = {this.state.isFiltered}
           removeItem={this.deleteItem}
           selectItem={this.toggleItem}
           editItem={this.editItem}
