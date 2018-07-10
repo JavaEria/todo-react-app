@@ -17,7 +17,7 @@ class TodoList extends Component{
 
     render(){
         return (
-        <div>
+        <div className="TodoList">
             {this.props.isFiltered ? 
             (this.props.filteredTodoList.map((item) => (
                 <TodoItem key = {item.id} 

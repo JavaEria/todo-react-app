@@ -8,7 +8,7 @@ class FilterTodo extends Component {
 
     render() {
         return (
-            <div>
+            <div className="FilterTodo">
                 <button id ='filter-all' onClick= {this.sendFilterName}>All</button>
                 <button id ='filter-complete' onClick= {this.sendFilterName}>Completed</button>
                 <button id ='filter-incomplete' onClick= {this.sendFilterName}>Incompleted</button>

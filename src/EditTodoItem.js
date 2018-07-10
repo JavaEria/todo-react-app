@@ -1,5 +1,4 @@
 import React from "react";
-import './EditTodoItem.css'
 
 class EditTodoItem extends React.Component {
   
@@ -21,7 +20,7 @@ class EditTodoItem extends React.Component {
 
   render() {
     return (
-      <div>
+      <span className="text">
           {this.state.isEditable ? null : (
             <p
               onClick={() => this.toggleTodo()}
@@ -37,7 +36,7 @@ class EditTodoItem extends React.Component {
               onBlur={(e) => this.editInputTodo(e, this.props.todoItem)}
             />
           ) : null}
-      </div>
+      </span>
     );
   }
 }

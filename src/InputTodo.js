@@ -15,7 +15,7 @@ class InputTodo extends Component {
 
     render() {
         return (
-            <form onSubmit = {this.sendTodo}>
+            <form onSubmit = {this.sendTodo} className="InputTodo">
                 <input type ="text" name= "inputTodo"/>
                 <button type="submit">Add</button>
             </form>
