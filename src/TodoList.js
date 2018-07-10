@@ -3,6 +3,10 @@ import TodoItem from './TodoItem'
 
 class TodoList extends Component{
 
+    constructor() {
+        super()
+        this.filteredData =[];
+    }
     itemDeleted = (item) => {
         this.props.removeItem(item);
     }
@@ -15,25 +19,32 @@ class TodoList extends Component{
         this.props.editItem(item, value);
     }
 
+    filterTodos = (filterName) => {
+        if(filterName === 'filter-complete') {
+            this.filteredData = this.props.todosList.filter((obj) => {
+            return obj.isChecked;
+          })
+        } else if(filterName === 'filter-incomplete'){
+            this.filteredData = this.props.todosList.filter((obj) => {
+            return !obj.isChecked;
+          })
+        } else {
+            this.filteredData = this.props.todosList;
+        } 
+      }
+
     render(){
+        this.filterTodos(this.props.filterName)
         return (
         <div className="TodoList">
-            {this.props.isFiltered ? 
-            (this.props.filteredTodoList.map((item) => (
+            {
+                this.filteredData.map((item) => (
                 <TodoItem key = {item.id} 
                 todoItem = {item} 
                 removeTodo = {this.itemDeleted} 
                 selectTodo = {this.itemSelected} 
-                editTodo = {this.itemEdited}/>
-            ))) :
-            (this.props.todosList.map((item) => (
-                <TodoItem key = {item.id} 
-                todoItem = {item} 
-                removeTodo = {this.itemDeleted} 
-                selectTodo = {this.itemSelected} 
-                editTodo = {this.itemEdited}/>
-            ))) 
-             }
+                editTodo = {this.itemEdited}/>))
+            }
         </div>
         )
     }

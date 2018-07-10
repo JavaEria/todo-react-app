@@ -7,7 +7,7 @@ import FilterTodo from "./FilterTodo";
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {data: [], filteredData: [], isFiltered: false}
+    this.state = {data: [], filterName: ''}
   }
 
   recieveTodo = item => {
@@ -34,26 +34,8 @@ class App extends Component {
     this.setState({ data: this.state.data });
   };
 
-  filterTodos = (filterName) => {
-    if(filterName === 'filter-complete') {
-      this.setState((preState)=> {
-        return {
-          filteredData:  this.state.data.filter((obj) => {
-          return obj.isChecked;
-        })}
-      })
-      this.setState({isFiltered: true})
-    } else if(filterName === 'filter-incomplete'){
-      this.setState((preState)=> {
-        return {
-          filteredData:  this.state.data.filter((obj) => {
-          return !obj.isChecked;
-        })}
-      })
-      this.setState({isFiltered: true})
-    } else {
-      this.setState({isFiltered: false})
-    } 
+  filterTodos = (filter) => {
+    this.setState({filterName: filter})
   }
 
   render() {
@@ -69,8 +51,7 @@ class App extends Component {
         </div>
         <TodoList
           todosList={this.state.data}
-          filteredTodoList = {this.state.filteredData} 
-          isFiltered = {this.state.isFiltered}
+          filterName = {this.state.filterName}
           removeItem={this.deleteItem}
           selectItem={this.toggleItem}
           editItem={this.editItem}
