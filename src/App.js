@@ -3,12 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import InputTodo from './InputTodo';
 import TodoList from './TodoList';
+import FilterTodo from './FilterTodo'
 
 class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {data: []}
+    this.state = {data: [], filteredData: []}
   }
   
   recieveTodo = (item) => {
@@ -35,6 +36,16 @@ class App extends Component {
     this.setState({data: this.state.data});  
   }
 
+  // filterTodos = (filterName) => {
+  //   if(filterName === 'filter-complete') {
+  //     this.state.data.filter((obj) => {
+  //       return obj.isChecked;
+  //     })
+  //   } else if(filterName === 'filter-incomplete'){
+  //   } else {
+  //   } 
+  // }
+
   render() {
     return (
       <div className="App">
@@ -42,7 +53,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Todo App</h1>
         </header>
-        <InputTodo recieveTodo= {this.recieveTodo}/>
+        <InputTodo recieveTodo = {this.recieveTodo}/>
+        <FilterTodo filterTodo = {this.filterTodos}/>
         <TodoList todosList = {this.state.data} removeItem = {this.deleteItem} selectItem = {this.toggleItem} editItem = {this.editItem}/>
       </div>
     );
