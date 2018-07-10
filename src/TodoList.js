@@ -11,11 +11,15 @@ class TodoList extends Component{
         this.props.selectItem(item);
     }
 
+    itemEdited = (item, value) => {
+        this.props.editItem(item, value);
+    }
+
     render(){
         return (
         <div>
             {this.props.todosList.map((item) => (
-                <TodoItem key = {item.id} todoItem = {item} removeItem = {this.itemDeleted} selectItem = {this.itemSelected}/>
+                <TodoItem key = {item.id} todoItem = {item} removeTodo = {this.itemDeleted} selectTodo = {this.itemSelected} editTodo = {this.itemEdited}/>
             ))}
         </div>
         )
