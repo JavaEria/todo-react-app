@@ -18,9 +18,22 @@ class TodoList extends Component{
     render(){
         return (
         <div>
-            {this.props.todosList.map((item) => (
-                <TodoItem key = {item.id} todoItem = {item} removeTodo = {this.itemDeleted} selectTodo = {this.itemSelected} editTodo = {this.itemEdited}/>
-            ))}
+            {this.props.isFiltered ? 
+            (this.props.filteredTodoList.map((item) => (
+                <TodoItem key = {item.id} 
+                todoItem = {item} 
+                removeTodo = {this.itemDeleted} 
+                selectTodo = {this.itemSelected} 
+                editTodo = {this.itemEdited}/>
+            ))) :
+            (this.props.todosList.map((item) => (
+                <TodoItem key = {item.id} 
+                todoItem = {item} 
+                removeTodo = {this.itemDeleted} 
+                selectTodo = {this.itemSelected} 
+                editTodo = {this.itemEdited}/>
+            ))) 
+             }
         </div>
         )
     }
