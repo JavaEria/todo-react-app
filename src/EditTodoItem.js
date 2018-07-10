@@ -25,8 +25,7 @@ class EditTodoItem extends React.Component {
           {this.state.isEditable ? null : (
             <p
               onClick={() => this.toggleTodo()}
-              className="label"
-            >
+              className="label">
               {this.props.todoItem.name}
             </p>
           )}
