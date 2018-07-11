@@ -8,7 +8,7 @@ class TodoList extends Component{
         this.filteredData =[];
     }
     itemDeleted = (item) => {
-        this.props.removeItem(item);
+        this.props.removeTodo(item);
     }
 
     itemSelected = (item) => {

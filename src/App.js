@@ -15,20 +15,20 @@ class App extends Component {
     this.setState({ data: this.state.data });
   };
 
-  deleteItem = item => {
+  deleteTodo = item => {
     let new_data = this.state.data.filter(obj => {
       return obj.id !== item.id;
     });
     this.setState({ data: new_data });
   };
 
-  toggleItem = item => {
+  toggleTodo = item => {
     let selectedItem = this.state.data.find(object => object.id === item.id);
     selectedItem.isChecked = !selectedItem.isChecked;
     this.setState({ data: this.state.data });
   };
 
-  editItem = (item, value) => {
+  editTodo = (item, value) => {
     let selectedItem = this.state.data.find(object => object.id === item.id);
     selectedItem.name = value;
     this.setState({ data: this.state.data });
@@ -52,9 +52,9 @@ class App extends Component {
         <TodoList
           todosList={this.state.data}
           filterName = {this.state.filterName}
-          removeItem={this.deleteItem}
-          selectItem={this.toggleItem}
-          editItem={this.editItem}
+          removeTodo={this.deleteTodo}
+          selectItem={this.toggleTodo}
+          editItem={this.editTodo}
         />
         </div>
       </div>
