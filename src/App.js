@@ -11,8 +11,8 @@ class App extends Component {
   }
 
   recieveTodo = item => {
-    this.state.data.push(item);
-    this.setState({ data: this.state.data });
+    let data = [...this.state.data, item]
+    this.setState({ data: data });
   };
 
   deleteTodo = item => {
