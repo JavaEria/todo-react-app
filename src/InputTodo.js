@@ -4,7 +4,7 @@ import uuid from'react-native-uuid';
 class InputTodo extends Component {
    
     createTodo = (todoDescription) => {
-       return {id: uuid.v1(), name: todoDescription, isChecked: false, isEditable: false};
+       return {id: uuid.v1(), name: todoDescription, isChecked: false};
     }
     
 
