@@ -12,7 +12,7 @@ class EditTodoItem extends React.Component {
   };
 
   editInputTodo = (event, todoItem) => {
-    if(this.state.isEditable) {
+    if(this.state.isEditable && event.target.value!=='') {
         this.props.editTodo(todoItem, event.target.value)
     }
     this.toggleTodo();
