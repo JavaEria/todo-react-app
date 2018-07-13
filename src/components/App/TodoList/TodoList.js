@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TodoItem from './TodoItem'
+import TodoItem from './TodoItem/TodoItem'
 
 class TodoList extends Component{
 
@@ -7,6 +7,7 @@ class TodoList extends Component{
         super()
         this.filteredData =[];
     }
+
     itemDeleted = (item) => {
         this.props.removeTodo(item);
     }
@@ -20,11 +21,11 @@ class TodoList extends Component{
     }
 
     filterTodos = (filterName) => {
-        if(filterName === 'filter-complete') {
+        if(filterName === this.props.filterTypes[1]) {
             this.filteredData = this.props.todosList.filter((obj) => {
             return obj.isChecked;
           })
-        } else if(filterName === 'filter-incomplete'){
+        } else if(filterName === this.props.filterTypes[2]){
             this.filteredData = this.props.todosList.filter((obj) => {
             return !obj.isChecked;
           })

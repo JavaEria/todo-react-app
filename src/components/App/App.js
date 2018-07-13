@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import InputTodo from "./InputTodo";
-import TodoList from "./TodoList";
-import FilterTodo from "./FilterTodo";
+import InputTodo from "./InputTodo/InputTodo";
+import TodoList from "./TodoList/TodoList";
+import FilterTodo from "./FilterTodo/FilterTodo";
+const filterTypes = ['all', 'complete', 'incomplete']
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {data: [], filterName: ''}
-  }
+  state = {data: [], filterName: ''}
 
   recieveTodo = item => {
     let data = [...this.state.data, item]
@@ -39,6 +37,8 @@ class App extends Component {
   }
 
   render() {
+    let todosList = this.state.data;
+    let filterName = this.state.filterName;
     return (
       <div className="App">
         <header className="App-header">
@@ -47,14 +47,15 @@ class App extends Component {
         <div className="Todo">
         <div className="TodoHeader">
         <InputTodo recieveTodo={this.recieveTodo} />
-        <FilterTodo filterTodo={this.filterTodos} />
+        <FilterTodo filterTodo={this.filterTodos} filterTypes={filterTypes}/>
         </div>
         <TodoList
-          todosList={this.state.data}
-          filterName = {this.state.filterName}
+          todosList={todosList}
+          filterName = {filterName}
           removeTodo={this.deleteTodo}
           selectItem={this.toggleTodo}
           editItem={this.editTodo}
+          filterTypes = {filterTypes}
         />
         </div>
       </div>
