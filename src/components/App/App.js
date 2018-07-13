@@ -6,7 +6,7 @@ import FilterTodo from "./FilterTodo/FilterTodo";
 const filterTypes = ['all', 'complete', 'incomplete']
 
 class App extends Component {
-  state = {data: [], filterName: ''}
+  state = {data: [], filterName: filterTypes[0]}
 
   recieveTodo = item => {
     let data = [...this.state.data, item]
@@ -33,12 +33,30 @@ class App extends Component {
   };
 
   filterTodos = (filter) => {
+    console.log('reached')
     this.setState({filterName: filter})
   }
 
+  filter = (filterName) => {
+    let filteredList=[];
+    if(filterName === filterTypes[1]) {
+        filteredList= this.state.data.filter((obj) => {
+        return obj.isChecked;
+      })
+    } else if(filterName === filterTypes[2]){
+        filteredList= this.state.data.filter((obj) => {
+        return !obj.isChecked;
+      })
+    } else {
+        filteredList= this.state.data;
+    } 
+    return filteredList;
+    
+  }
+
   render() {
-    let todosList = this.state.data;
     let filterName = this.state.filterName;
+    let todosList = this.filter(filterName);
     return (
       <div className="App">
         <header className="App-header">
@@ -50,12 +68,11 @@ class App extends Component {
         <FilterTodo filterTodo={this.filterTodos} filterTypes={filterTypes}/>
         </div>
         <TodoList
-          todosList={todosList}
+          todosList= {todosList}
           filterName = {filterName}
           removeTodo={this.deleteTodo}
           selectItem={this.toggleTodo}
           editItem={this.editTodo}
-          filterTypes = {filterTypes}
         />
         </div>
       </div>
