@@ -7,7 +7,6 @@ import {
     number,
     select
   } from "@storybook/addon-knobs";
-import "../index";
 import TodoItem from "../TodoItem";
 
 

@@ -10,8 +10,26 @@ import {
 
 import "../index";
 
-import './InputTodo';
-import './TodoItem';
-import './TodoList';
-import './EditTodoItem';
-import './FilterTodo';
+// import './InputTodo';
+// import './TodoItem';
+// import './TodoList';
+// import './EditTodoItem';
+// import './FilterTodo';
+import TodoItem from "../TodoItem";
+
+
+
+const todoItem = storiesOf("TodoItem", module);
+todoItem
+.addDecorator(withKnobs)
+.add('Single Todo Item', ()=>(
+  <TodoItem
+    key='1'
+    todoItem=
+      {{
+        id: 1,
+        name: text("Task Name","Todo1"),
+        isChecked: boolean("Task 1 Complete?"),
+      }}
+      />
+));

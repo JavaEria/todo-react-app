@@ -8,7 +8,6 @@ import {
     select
   } from "@storybook/addon-knobs";
   
-import "../index";
 import EditTodoItem from "../EditTodoItem";
 
 

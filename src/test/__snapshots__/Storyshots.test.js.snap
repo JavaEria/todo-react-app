@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots TodoItem Single Todo Item 1`] = `
+<div
+  className="TodoItem"
+>
+  <input
+    checked=""
+    className="checkmark"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <span
+    className="text"
+  >
+    <p
+      className="label"
+      onClick={[Function]}
+    >
+      Todo1
+    </p>
+  </span>
+  <button
+    className="cross"
+    onClick={[Function]}
+  >
+    X
+  </button>
+</div>
+`;
