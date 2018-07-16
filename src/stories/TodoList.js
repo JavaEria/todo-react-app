@@ -8,7 +8,7 @@ import {
     select
   } from "@storybook/addon-knobs";
   
-import TodoList from "../TodoList";
+import TodoList from "../components/App/TodoList/TodoList";
 import "../index";
 
 const filterTypes = ["filter-all", "filter-complete", "filter-incomplete"];

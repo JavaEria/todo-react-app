@@ -8,7 +8,7 @@ import {
     select
   } from "@storybook/addon-knobs";
 import "../index";
-import TodoItem from "../TodoItem";
+import TodoItem from "../components/App/TodoList/TodoItem/TodoItem";
 
 
 

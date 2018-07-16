@@ -17,7 +17,7 @@ class InputTodo extends Component {
         return (
             <form onSubmit = {this.sendTodo} className="InputTodo">
                 <input type ="text" name= "inputTodo"/>
-                <button type="submit">Add</button>
+                <button type="submit">Ad</button>
             </form>
         )
     }

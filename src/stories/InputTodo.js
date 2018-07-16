@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import "../index";
-import InputTodo from "../InputTodo";
+import InputTodo from "../components/App/InputTodo/InputTodo";
 
 
 const inputTodo = storiesOf("InputTodo", module);

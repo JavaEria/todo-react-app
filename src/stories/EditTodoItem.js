@@ -9,7 +9,7 @@ import {
   } from "@storybook/addon-knobs";
   
 import "../index";
-import EditTodoItem from "../EditTodoItem";
+import EditTodoItem from "../components/App/TodoList/TodoItem/EditTodoItem/EditTodoItem";
 
 
 

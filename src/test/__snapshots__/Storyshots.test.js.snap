@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots EditTodoItem Edit a Todo 1`] = `
+<span
+  className="text"
+>
+  <p
+    className="label"
+    onClick={[Function]}
+  >
+    Todo1
+  </p>
+</span>
+`;
+
+exports[`Storyshots FilterTodo Filters 1`] = `
+<div
+  className="FilterTodo"
+>
+  <button
+    onClick={[Function]}
+  >
+    All
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Completed
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Incompleted
+  </button>
+</div>
+`;
+
+exports[`Storyshots InputTodo Add a Todo Item 1`] = `
+<form
+  className="InputTodo"
+  onSubmit={[Function]}
+>
+  <input
+    name="inputTodo"
+    type="text"
+  />
+  <button
+    type="submit"
+  >
+    Ad
+  </button>
+</form>
+`;
+
+exports[`Storyshots TodoItem Single Todo Item 1`] = `
+<div
+  className="TodoItem"
+>
+  <input
+    checked=""
+    className="checkmark"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <span
+    className="text"
+  >
+    <p
+      className="label"
+      onClick={[Function]}
+    >
+      Todo1
+    </p>
+  </span>
+  <button
+    className="cross"
+    onClick={[Function]}
+  >
+    X
+  </button>
+</div>
+`;
+
+exports[`Storyshots TodoList Show a todo List with filters 1`] = `
+<div
+  className="TodoList"
+>
+  <div
+    className="TodoItem"
+  >
+    <input
+      checked=""
+      className="checkmark"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="text"
+    >
+      <p
+        className="label"
+        onClick={[Function]}
+      >
+        Todo 1
+      </p>
+    </span>
+    <button
+      className="cross"
+      onClick={[Function]}
+    >
+      X
+    </button>
+  </div>
+  <div
+    className="TodoItem"
+  >
+    <input
+      checked=""
+      className="checkmark"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="text"
+    >
+      <p
+        className="label"
+        onClick={[Function]}
+      >
+        Todo 2
+      </p>
+    </span>
+    <button
+      className="cross"
+      onClick={[Function]}
+    >
+      X
+    </button>
+  </div>
+</div>
+`;
