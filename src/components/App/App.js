@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import InputTodo from "./InputTodo";
-import TodoList from "./TodoList";
-import FilterTodo from "./FilterTodo";
+import InputTodo from "./InputTodo/InputTodo";
+import TodoList from "./TodoList/TodoList";
+import FilterTodo from "./FilterTodo/FilterTodo";
+const filterTypes = ['all', 'complete', 'incomplete']
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {data: [], filterName: ''}
-  }
+  state = {data: [], filterName: filterTypes[0]}
 
   recieveTodo = item => {
     let data = [...this.state.data, item]
@@ -35,10 +33,30 @@ class App extends Component {
   };
 
   filterTodos = (filter) => {
+    console.log('reached')
     this.setState({filterName: filter})
   }
 
+  filter = (filterName) => {
+    let filteredList=[];
+    if(filterName === filterTypes[1]) {
+        filteredList= this.state.data.filter((obj) => {
+        return obj.isChecked;
+      })
+    } else if(filterName === filterTypes[2]){
+        filteredList= this.state.data.filter((obj) => {
+        return !obj.isChecked;
+      })
+    } else {
+        filteredList= this.state.data;
+    } 
+    return filteredList;
+    
+  }
+
   render() {
+    let filterName = this.state.filterName;
+    let todosList = this.filter(filterName);
     return (
       <div className="App">
         <header className="App-header">
@@ -47,11 +65,11 @@ class App extends Component {
         <div className="Todo">
         <div className="TodoHeader">
         <InputTodo recieveTodo={this.recieveTodo} />
-        <FilterTodo filterTodo={this.filterTodos} />
+        <FilterTodo filterTodo={this.filterTodos} filterTypes={filterTypes}/>
         </div>
         <TodoList
-          todosList={this.state.data}
-          filterName = {this.state.filterName}
+          todosList= {todosList}
+          filterName = {filterName}
           removeTodo={this.deleteTodo}
           selectItem={this.toggleTodo}
           editItem={this.editTodo}
